@@ -1,3 +1,5 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <sm-button class="positive" (click)="getUser($event)" icon="thumbs up">Get Random User</sm-button>
+  <pre >{{randomUser | json}}</pre>
+  <router-outlet></router-outlet>
+</div>

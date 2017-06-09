@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {UserService} from './services/user.service';
+import {UserModel} from './datamodels/user.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  randomUser: UserModel;
+  constructor(private user: UserService) {
+
+  }
+
+  getUser() {
+    // this.randomUser = this.user.getUser() ;
+    // console.log(this.randomUser.name);
+
+    this.user.getUser()
+      .subscribe(
+        res => {
+          this.randomUser = res.json();
+        },
+        err => {
+          console.error(err);
+        }
+      );
+  }
 }
