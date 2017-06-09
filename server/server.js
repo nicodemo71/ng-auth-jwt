@@ -30,6 +30,7 @@ app.listen(3000, function(){
 
 function authenticate(req, res, next) {
   var body = req.body;
+
   if (!body.username || !body.password) {
     res.status(400).end('devi inserire una username o password');
   }
