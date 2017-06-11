@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login({ username: this.username, password: this.password}).subscribe(
       // note: nel service ho usato l'observable map restituendo un oggetto variabile (any)
       data => console.log(data),
-      err => console.log(err)
+      err => alert(err.error)
     );
     // alert(this.username);
   }

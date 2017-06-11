@@ -39,12 +39,11 @@ app.listen(3000, function(){
 
 function authenticate(req, res, next) {
   var body = req.body;
-
   if (!body.username || !body.password) {
-    return res.status(400).end('devi inserire una username o password');
+    return res.status(400).send({'error' : 'devi inserire una username o password'}); // prima al posto di send c'era end.
   }
   if (body.username !== user.username || body.password !== user.password) {
-    return res.status(401).end('username o password errati');
+    return res.status(401).send({'error' : 'username o password errati'});
   }
   next();
 }
