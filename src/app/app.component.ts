@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   }
   getUser() {
     this.asyncTest = this.userService.getUser();
+    // note: ho commentato sotto per usare il PIPE async con json per visualizzare in html i dati.
+    // In questo modo sotto, posso recuperare i dati e memorizzari in un oggetto della classe UserModel
     /*
     this.userService.getUser()
       .subscribe(
