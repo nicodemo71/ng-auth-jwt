@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from './services/user.service';
 import {UserModel} from './datamodels/user.model';
 
@@ -7,24 +7,21 @@ import {UserModel} from './datamodels/user.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   randomUser: UserModel;
-  constructor(private user: UserService) {
-
+  asyncTest: any; // = this.userService.getUser();
+  constructor(private userService: UserService) {
   }
-
+  ngOnInit () {
+    // this.getUser();
+  }
   getUser() {
-    // this.randomUser = this.user.getUser() ;
-    // console.log(this.randomUser.name);
-
-    this.user.getUser()
+    this.asyncTest = this.userService.getUser();
+    /*
+    this.userService.getUser()
       .subscribe(
-        res => {
-          this.randomUser = res.json();
-        },
-        err => {
-          console.error(err);
-        }
-      );
+        res => this.randomUser = res,
+        err => console.error(err)
+      );*/
   }
 }

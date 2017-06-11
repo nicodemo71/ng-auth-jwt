@@ -2,6 +2,9 @@ var express = require('express');
 var faker = require('faker');
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var jwt = require('jsonwebtoken');
+
+var jwtSecret = "fkajoi3/zmko";
 
 var user = {
   username: 'plus',
@@ -20,7 +23,13 @@ app.get('/random-user',function(req, res){
 })
 
 app.post('/login', authenticate, function (req, res) {
-  res.send(user);
+  var token = jwt.sign({
+    username: user.username
+  }, jwtSecret);
+  res.send({
+    token: token,
+    user: user
+  });
 })
 
 app.listen(3000, function(){
@@ -32,10 +41,10 @@ function authenticate(req, res, next) {
   var body = req.body;
 
   if (!body.username || !body.password) {
-    res.status(400).end('devi inserire una username o password');
+    return res.status(400).end('devi inserire una username o password');
   }
   if (body.username !== user.username || body.password !== user.password) {
-    res.status(401).end('username o password errati');
+    return res.status(401).end('username o password errati');
   }
   next();
 }

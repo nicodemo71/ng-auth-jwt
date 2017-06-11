@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../services/login.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,12 +15,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form?: any): void {
-    this.loginService.login(this.username, this.password).subscribe(
-      res => {
-        console.log(JSON.stringify(res));
-      }, err => {
-        console.error(JSON.stringify(err));
-      }
+    this.loginService.login({ username: this.username, password: this.password}).subscribe(
+      // note: nel service ho usato l'observable map restituendo un oggetto variabile (any)
+      (data: any) => console.log(data),
+      (err: any) => console.error(err)
     );
     // alert(this.username);
   }
