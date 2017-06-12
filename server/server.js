@@ -4,13 +4,41 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
-
+/*
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook');
+*/
 var jwtSecret = "fkajoi3/zmko";
 
 var user = {
   username: 'plus',
   password: '12345'
 }
+/*
+const FACEBOOK_APP_ID = 'xxxxxxxxxxxxxxxxx';
+const FACEBOOK_APP_SECRET = 'xxxxxxxxxxxxxxxxxxxxxxxx';
+passport.use(new FacebookStrategy({
+    clientID: FACEBOOK_APP_ID,
+    clientSecret: FACEBOOK_APP_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function (err, user) {
+    done(err, user);
+  });
+});
+*/
 
 var app = express();
 

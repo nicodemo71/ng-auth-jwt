@@ -22,7 +22,7 @@ import {AuthGuard} from './services/auth-guard.service';
     ])
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ],
   providers: [],
 })
