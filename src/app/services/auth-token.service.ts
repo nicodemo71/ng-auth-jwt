@@ -8,6 +8,7 @@ export class AuthTokenService {
     this.store = window.localStorage;
   }
   public getToken(): any {
+    console.log(this.key);
     return this.store.getItem(this.key);
   }
   public setToken(token): void {

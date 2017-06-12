@@ -18,4 +18,7 @@ export class LoginService {
         }
       );
   }
+  logout() {
+    this.authToken.setToken(null);
+  }
 }

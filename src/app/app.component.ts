@@ -16,7 +16,13 @@ export class AppComponent implements OnInit {
     // this.getUser();
   }
   getUser() {
-    this.asyncTest = this.userService.getUser();
+    this.asyncTest = this.userService.getUser().subscribe(
+      res => this.randomUser = res,
+      err => {
+        console.error(err.error);
+        this.randomUser = null;
+      }
+    );
     // note: ho commentato sotto per usare il PIPE async con json per visualizzare in html i dati.
     // In questo modo sotto, posso recuperare i dati e memorizzari in un oggetto della classe UserModel
     /*

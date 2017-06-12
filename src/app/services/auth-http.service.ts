@@ -8,19 +8,16 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class AuthHttpService {
-  protected headers: Headers;
   constructor(
     private http: Http,
     private authTokenService: AuthTokenService,
     @Inject('apiUrl') private URL) {
-    this.headers = new Headers();
-    this.headers.append('Content-Type', 'application/json');
-    this.headers.append('Accept', 'application/json');
   }
 
  private createAuthorizationHeader(): Headers {
    const headerAuth = new Headers();
-   Object.assign(headerAuth, this.headers);
+   headerAuth.append('Content-Type', 'application/json');
+   headerAuth.append('Accept', 'application/json');
    const token = this.authTokenService.getToken();
    if (token) {
      headerAuth.append('authorization', 'Bearer ' + token);

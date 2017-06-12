@@ -7,13 +7,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {SERVICES} from './services/index';
 import {UserModel} from './datamodels/user.model';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './views/login/login.component';
 import {AppRoutingModule} from './app.routing.module';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     NgSemanticModule,
