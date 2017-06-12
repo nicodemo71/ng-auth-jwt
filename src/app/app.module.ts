@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgSemanticModule } from 'ng-semantic';
+import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
