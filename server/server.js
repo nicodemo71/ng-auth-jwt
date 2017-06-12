@@ -22,8 +22,12 @@ app.get('/random-user',function(req, res){
   res.json(user);
 })
 
+/**
+ * exp token -> number of seconds from 1970-01-01T00:00:00Z UTC
+ */
 app.post('/login', authenticate, function (req, res) {
   var token = jwt.sign({
+    exp: Math.floor(Date.now() / 1000) + (60 * 60), /* Signing a token with 1 hour of expiration */
     username: user.username
   }, jwtSecret);
   res.send({
@@ -40,7 +44,8 @@ app.listen(3000, function(){
 function authenticate(req, res, next) {
   var body = req.body;
   if (!body.username || !body.password) {
-    return res.status(400).send({'error' : 'devi inserire una username o password'}); // prima al posto di send c'era end.
+    // note: inizialmente invece di "send" era "end" ma la response non inviava un oggetto json
+    return res.status(400).send({'error' : 'devi inserire una username o password'});
   }
   if (body.username !== user.username || body.password !== user.password) {
     return res.status(401).send({'error' : 'username o password errati'});

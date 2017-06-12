@@ -16,11 +16,11 @@ import {AppRoutingModule} from './app.routing.module';
     LoginComponent
   ],
   imports: [
+    NgSemanticModule,
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
-    NgSemanticModule
+    HttpModule
   ],
   providers: [
     ...SERVICES,

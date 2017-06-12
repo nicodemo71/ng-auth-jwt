@@ -9,15 +9,19 @@ import {LoginService} from '../services/login.service';
 export class LoginComponent implements OnInit {
   username = 'mario';
   password = '1234';
-  constructor(public loginService: LoginService) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form?: any): void {
     this.loginService.login({ username: this.username, password: this.password}).subscribe(
-      // note: nel service ho usato l'observable map restituendo un oggetto variabile (any)
-      data => console.log(data),
+      data => {
+        console.log(data);
+        if (data.token) {
+          // TODO: da qui faccio il routing
+        }
+      },
       err => alert(err.error)
     );
     // alert(this.username);
