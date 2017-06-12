@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-Injectable()
+@Injectable()
 export class AuthTokenService {
   protected store: Storage;
   key = 'auth-token';

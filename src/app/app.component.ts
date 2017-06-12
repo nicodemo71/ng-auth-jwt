@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit () {
     // this.getUser();
   }
+  // note: per far funzionare il PIPE async sull'html, commentare dopo .getUser()
   getUser() {
     this.asyncTest = this.userService.getUser().subscribe(
       res => this.randomUser = res,
@@ -23,13 +24,5 @@ export class AppComponent implements OnInit {
         this.randomUser = null;
       }
     );
-    // note: ho commentato sotto per usare il PIPE async con json per visualizzare in html i dati.
-    // In questo modo sotto, posso recuperare i dati e memorizzari in un oggetto della classe UserModel
-    /*
-    this.userService.getUser()
-      .subscribe(
-        res => this.randomUser = res,
-        err => console.error(err)
-      );*/
   }
 }

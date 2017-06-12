@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {LoginComponent} from './views/login/login.component';
 import {HomeComponent} from './views/home/home.component';
+import {AuthGuard} from './services/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import {HomeComponent} from './views/home/home.component';
       },
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard],
       },
       { path: '', component: LoginComponent},
       { path: '**', component: LoginComponent}
