@@ -1,28 +1,34 @@
 # MyNewapp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+Progetto di test angular 2(4) con cui mi collego ad un servizio rest api node.
+Lo scopo e' l'autenticazione con json web token e limitare l'accesso delle pagine.
+Il progetto è in github [ng-auth-jwt](https://github.com/nicodemo71/ng-auth-jwt.git)
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run on server directory `nodemon server.js`. Navigate to `http://localhost:3000`.
 
-## Code scaffolding
+## http response
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+#### ReactiveX / rxjs
+La funzione map trasforma il risultato di un observable in un altro observable.
+In questo modo la response è stata trasformata in oggetto e ripropagata come observable.
 
-## Build
+La gestione delle eccezioni è stata fatta con catch e throw di questo componente.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+## CSS
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Semantic: [ng-semantic](https://ng-semantic.herokuapp.com/#/)
 
-## Running end-to-end tests
+Ho utilizzato ngSemantic ed un problema per eseguire il modulo principale e' dichiararlo: import { NgSemanticModule } from 'ng-semantic/ng-semantic';
+Nella pagina principale index.html dichiarare:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+TODO:
+
+spostare la cartella login con il componente di login nella cartella "views"
