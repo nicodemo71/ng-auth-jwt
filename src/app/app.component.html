@@ -2,5 +2,10 @@
   <sm-button class="positive" (click)="getUser($event)" icon="thumbs up">Get Random User</sm-button>
   <pre >{{randomUser ? (randomUser | json) : ''}}</pre>
   <!--<pre>{{asyncTest ? (asyncTest | async | json) : ''}}</pre>-->
+  <ul>
+    <li class="text" *ngFor="let item of items | async">
+      {{item.$key + ' ' + item.name}}
+    </li>
+  </ul>
   <router-outlet></router-outlet>
 </div>

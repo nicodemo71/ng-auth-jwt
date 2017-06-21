@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from './services/user.service';
 import {UserModel} from './datamodels/user.model';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,18 @@ import {UserModel} from './datamodels/user.model';
 export class AppComponent implements OnInit {
   randomUser: UserModel;
   asyncTest: any; // = this.userService.getUser();
-  constructor(private userService: UserService) {
+  items: FirebaseListObservable<any[]>;
+  constructor(private userService: UserService, db: AngularFireDatabase ) {
+    this.items = db.list('/items');
+    this.items.subscribe(
+      success => console.log('got data'),
+      error => console.log(error.code)
+    );
+    // debugger;
   }
   ngOnInit () {
-    // this.getUser();
+    // this.getUser();.
+    // this.items.push({name: 'prova prova'});
   }
   // note: per far funzionare il PIPE async sull'html, commentare dopo .getUser()
   getUser() {
