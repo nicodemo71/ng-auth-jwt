@@ -13,11 +13,15 @@ export class AppComponent implements OnInit {
   asyncTest: any; // = this.userService.getUser();
   items: FirebaseListObservable<any[]>;
   constructor(private userService: UserService, db: AngularFireDatabase ) {
-    this.items = db.list('/items');
-    this.items.subscribe(
-      success => console.log('got data'),
-      error => console.log(error.code)
-    );
+    try {
+      this.items = db.list('/items');
+      this.items.subscribe(
+        success => console.log('got data'),
+        error => console.log(error.code)
+      );
+    } catch (e) {
+      // debugger
+    }
     // debugger;
   }
   ngOnInit () {

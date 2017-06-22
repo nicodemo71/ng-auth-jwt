@@ -1,5 +1,39 @@
 <div class="container">
+  <!--
+  <div class="ui menu">
+    <div class="header item">
+      Our Company
+    </div>
+    <a class="item">
+      About Us
+    </a>
+    <a class="item">
+      Jobs
+    </a>
+    <a class="item">
+      Locations
+    </a>
+  </div>
+  -->
+  <!--
+  <sm-menu title="Angular2" class="inverted teal" >
+
+    <sm-button class="ui youtube">
+      <i class="youtube icon"></i>
+      YouTube
+    </sm-button>
+
+
+    <sm-menu class="menu right secondary">
+      <a sm-item href="#/elements/menu"
+         image="http://semantic-ui.com/images/avatar/small/stevie.jpg">Elliot Fu</a>
+    </sm-menu>
+  </sm-menu>
+  -->
   <sm-button class="positive" (click)="getUser($event)" icon="thumbs up">Get Random User</sm-button>
+  <button class="ui circular google plus icon button">
+    <i class="google plus icon"></i>
+  </button>
   <pre >{{randomUser ? (randomUser | json) : ''}}</pre>
   <!--<pre>{{asyncTest ? (asyncTest | async | json) : ''}}</pre>-->
   <ul>
