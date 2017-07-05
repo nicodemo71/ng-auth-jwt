@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgSemanticModule } from 'ng-semantic/ng-semantic';
+import { NgSemanticModule } from 'ng-semantic';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 //
@@ -22,14 +22,14 @@ import { environment } from '../environments/environment';
     HomeComponent
   ],
   imports: [
-    NgSemanticModule,
     AppRoutingModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgSemanticModule
   ],
   providers: [
     ...SERVICES,

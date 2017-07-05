@@ -21,12 +21,35 @@ La gestione delle eccezioni è stata fatta con catch e throw di questo component
 ## CSS
 
 Semantic: [ng-semantic](https://ng-semantic.herokuapp.com/#/)
++ npm install ng-semantic --save
 
-Ho utilizzato ngSemantic ed un problema per eseguire il modulo principale e' dichiararlo: import { NgSemanticModule } from 'ng-semantic/ng-semantic';
-Nella pagina principale index.html dichiarare:
+Inserire in index.html:
 
+```html
+<link rel="stylesheet" type="text/css"
+href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+.
+.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+```
+## Webpack Semantic Troubleshooting 
+
+<span style="color: red;">ERROR in NgSemanticModule is not an NgModule</span>
+
+add the following to the file ng-semantic.d.ts in the ng-semantic node package
+
+import { NgModule } from '@angular/core';
+
+...
+
+@NgModule({
+    declarations: [
+        NgSemanticModule
+    ]
+})
+export declare class NgSemanticModule {
+}
 
 ##AngularFire2 Troubleshooting:
 
