@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
       success => console.log('got data'),
       error => console.log(error.code)
     );
-    // debugger;
+    // debugger; //
   }
   ngOnInit () {
     // this.getUser();.
