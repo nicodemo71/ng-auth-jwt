@@ -20,13 +20,6 @@ export class AppComponent implements OnInit {
       data => this.items = data,
       error => console.log(error.code)
     );
-    /*
-    this.items = db.list('/items');
-    this.items.subscribe(
-      success => console.log('got data'),
-      error => console.log(error.code)
-    );*/
-    // debugger;
   }
   ngOnInit () {
     // this.getUser();.
