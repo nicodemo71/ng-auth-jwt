@@ -69,7 +69,7 @@ app.get('/random-user',function(req, res){
  */
 app.post('/login', authenticate, function (req, res) {
   var token = jwt.sign({
-    exp: Math.floor(Date.now() / 1000) + (60 * 60), /* Signing a token with 1 hour of expiration */
+    exp: Math.floor(Date.now() / 1000) + (60 /** 60*/), /* Signing a token with 1 hour of expiration */
     username: user.username
   }, jwtSecret);
   res.send({

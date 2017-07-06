@@ -36,8 +36,11 @@
   </button>
   <pre >{{randomUser ? (randomUser | json) : ''}}</pre>
   <!--<pre>{{asyncTest ? (asyncTest | async | json) : ''}}</pre>-->
-  <ul>
+  <ul><!--
     <li class="text" *ngFor="let item of items | async">
+      {{item.$key + ' ' + item.name}}
+    </li>-->
+    <li class="text" *ngFor="let item of items">
       {{item.$key + ' ' + item.name}}
     </li>
   </ul>
